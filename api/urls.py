@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
+
 urlpatterns = [
-    path('',views.BlogPostListCreate.as_view(), name='blog-post-view-create'),
-    path('<int:pk>/', views.BlogPostRetrieveUpdateDestroy.as_view(), name='update'),
-    path('list', views.BlogPostList.as_view(), name='blog-post-list'),
+    path('posts/',views.PostList.as_view()),
+    path('auth/',include('rest_framework.urls'))
 ]
